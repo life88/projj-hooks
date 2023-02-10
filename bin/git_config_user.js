@@ -2,12 +2,12 @@
 
 'use strict';
 
-const path = require('path');
+const path = require('pathe');
 const fs = require('mz/fs');
 const runscript = require('runscript');
 const { getConfig, run } = require('../lib/utils');
 
-const cwd = process.cwd();
+const cwd = path.resolve(process.cwd());
 const gitConfig = path.join(cwd, '.git/config');
 const config = getConfig({
   'github.com': {
@@ -29,10 +29,14 @@ run(function* () {
     const { name, email, signingkey } = config[domain];
     console.log('%s includes %s', cwd, domain);
     console.log('set name: %s, email: %s, signingkey: %s', name, email, signingkey || '');
-    yield runscript(`git config --replace-all user.name ${name}`, { cwd });
-    yield runscript(`git config --replace-all user.email ${email}`, { cwd });
+    if (name) {
+      yield runscript(`git config --replace-all user.name ${name}`, { cwd });
+    }
+    if (email) {
+      yield runscript(`git config --replace-all user.email ${email}`, { cwd });
+    }
     if (signingkey) {
-      yield runscript(`git config commit.gpgsign true`, { cwd });
+      yield runscript('git config commit.gpgsign true', { cwd });
       yield runscript(`git config --replace-all user.signingkey ${signingkey}`, { cwd });
     }
   }

@@ -3,11 +3,11 @@
 'use strict';
 
 const fs = require('fs');
-const path = require('path');
+const path = require('pathe');
 const runscript = require('runscript');
 const { getConfig, run } = require('../lib/utils');
 
-const cwd = process.cwd();
+const cwd = path.resolve(process.cwd());
 const config = getConfig({
   node_modules: true,
   git: true,

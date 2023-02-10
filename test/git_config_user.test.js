@@ -1,6 +1,6 @@
 'use strict';
 
-const path = require('path');
+const path = require('pathe');
 const coffee = require('coffee');
 const mm = require('mm');
 const rimraf = require('mz-modules/rimraf');

@@ -6,6 +6,7 @@
     "co": "^4.6.0",
     "cson": "^4.0.0",
     "mz": "^2.6.0",
+    "pathe": "^1.1.0",
     "runscript": "^1.2.0"
   },
   "devDependencies": {

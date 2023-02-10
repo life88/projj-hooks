@@ -3,11 +3,11 @@
 'use strict';
 
 const os = require('os');
-const path = require('path');
+const path = require('pathe');
 const fs = require('mz/fs');
 const { getConfig, run } = require('../lib/utils');
 
-const cwd = process.cwd();
+const cwd = path.resolve(process.cwd());
 const title = path.basename(cwd);
 const config = getConfig({
   setting: path.join(os.homedir(), 'Library/Application Support/Code/User/projects.json'),

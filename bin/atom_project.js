@@ -2,11 +2,11 @@
 
 'use strict';
 
-const path = require('path');
+const path = require('pathe');
 const fs = require('mz/fs');
 const { getConfig, run, stringifyCson, parseCson } = require('../lib/utils');
 
-const cwd = process.cwd();
+const cwd = path.resolve(process.cwd());
 const title = path.basename(cwd);
 const config = getConfig({
   setting: 'projects.cson',
